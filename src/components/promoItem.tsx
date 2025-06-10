@@ -20,7 +20,7 @@ export interface PromoItemProps {
 
 const PromoItem = ({ item }: PromoItemProps) => {
   return (
-    <div className='px-2.5 pt-3 pb-10 border-2 border-[#239653] rounded-lg'>
+    <div className='px-[8px] pt-3 pb-10 border-2 border-[#239653] rounded-lg'>
       {item.badge ? (
         <span
           className={`absolute w-[90px] h-[30px] px-5 font-medium text-[18px] text-white ${item.badge === 'top' ? 'bg-[#2d9cdb]' : 'bg-[#bb6bd9]'} 

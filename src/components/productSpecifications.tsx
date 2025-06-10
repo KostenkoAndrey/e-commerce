@@ -37,11 +37,13 @@ const ProductSpecifications = ({
           <p>{brand}</p>
         </li>
       </ul>
-      <button
-        type='button'
-        className='flex items-center gap-3 font-medium text-[16px] leading-[1.2] text-[#33485d]'
-      >
-        Все Характеристики
+      <button type='button' className='flex items-baseline gap-3 '>
+        <span
+          className="relative font-medium text-[16px] leading-[1.2] text-[#33485d]
+        after:absolute after:content-[''] after:left-0 after:-bottom-1 after:border-b after:w-full after:border-[#5c6d7d] after:opacity-50"
+        >
+          Все Характеристики
+        </span>
         <svg className='w-1.5 h-[9px] fill-[#33485d]'>
           <use href='/svg/sprite.svg#Path-right' />
         </svg>

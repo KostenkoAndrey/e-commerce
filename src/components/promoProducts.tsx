@@ -7,7 +7,7 @@ export interface PromoProductsProps {}
 const PromoProducts = ({}: PromoProductsProps) => {
   return (
     <div className='mx-auto'>
-      <div className='pt-[15px] w-full pb-10 mx-auto'>
+      <div className='pt-[15px] pb-10 mx-auto'>
         <h3 className='mb-[30px] font-normal text-[30px] leading-[1.2] text-[#33485d]'>
           Тестовые товары
         </h3>
