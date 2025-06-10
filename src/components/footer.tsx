@@ -4,8 +4,8 @@ export interface FooterProps {}
 
 const Footer = ({}: FooterProps) => {
   return (
-    <div className='w-[1520px] px-10 bg-[#0d4128]'>
-      <div className='py-[21px] flex justify-between items-center mx-auto'>
+    <div className=' bg-[#0d4128] '>
+      <div className='w-[1520px] px-10 py-[21px] mx-auto flex justify-between items-center '>
         <p className='font-normal text-[14px] leading-[1.3] text-white opacity-50'>
           2021 &#169; Wezom Test
         </p>

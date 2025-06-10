@@ -12,7 +12,7 @@ const productQuantity = 13;
 
 const Header = () => {
   return (
-    <header className='flex justify-between items-center gap-4 max-w-[1520px] px-10 py-5 mx-auto'>
+    <header className='flex justify-between items-center gap-4 w-[1520px] px-10 py-5 mx-auto'>
       <div className='flex flex-col gap-4'>
         <svg className='w-[114px] h-[41px] fill-black'>
           <use href='/svg/sprite.svg#WezomLogo' />
