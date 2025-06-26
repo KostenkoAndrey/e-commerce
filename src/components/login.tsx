@@ -6,7 +6,7 @@ export interface LoginProps {}
 const Login = ({}: LoginProps) => {
   return (
     <Link
-      className='flex gap-3 items-center font-bold text-[0.75rem] xl:text-[0.875rem] leading-[1.2] text-[#5c6d7d] hover:text-[#33485d]'
+      className='flex gap-3 items-center font-bold text-[0.75rem] xl:text-[0.875rem] leading-[1.2] text-[#5c6d7d] hover:text-[#33485d] lg:mr-4'
       href='/login'
     >
       Войти

@@ -27,7 +27,7 @@ const Header = () => {
         <SearchBox />
       </div>
 
-      <div className='hidden md:flex lg:flex-col justify-center items-center gap-8'>
+      <div className='hidden md:flex lg:flex-col justify-center items-end lg:gap-8'>
         <div className='flex gap-2 lg:gap-[62px]'>
           <LanguageSwitcher />
           <Login />
