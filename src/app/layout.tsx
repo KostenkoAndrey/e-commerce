@@ -37,9 +37,10 @@ export default function RootLayout({
         <meta name='apple-mobile-web-app-title' content='MyWebSite' />
         <link rel='manifest' href='/favicons/site.webmanifest' />
       </head>
+
       <body className='flex flex-col h-screen'>
         <Header />
-        <main className='grow'> {children}</main>
+        <main className='flex justify-center items-center grow'> {children}</main>
         <Footer />
       </body>
     </html>
