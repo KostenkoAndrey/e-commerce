@@ -9,7 +9,7 @@ import CallbackForm from '@/components/callbackForm';
 export default function Layout() {
   return (
     <>
-      <div className='bg-gradient-to-b from-green-600 to-white pt-[30px] mx-auto'>
+      <div className='bg-gradient-to-b from-green-600 to-white pt-[30px] mx-auto w-full'>
         <div className='max-w-[1520px] mx-auto px-[10px] xl:px-10 pb-10 bg-white'>
           <Path />
           <ProductDetails />
