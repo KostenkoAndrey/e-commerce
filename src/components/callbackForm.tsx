@@ -1,11 +1,15 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
-
-export interface CallbackFormProps {}
+import { useMask } from '@react-input/mask';
 
 type FormValues = { phone: string };
 
-const CallbackForm = ({}: CallbackFormProps) => {
+const CallbackForm = () => {
+  const inputRef = useMask({
+    mask: '+380 (__) __-__-___',
+    replacement: { _: /\d/ },
+  });
+
   const {
     register,
     setValue,
@@ -18,44 +22,53 @@ const CallbackForm = ({}: CallbackFormProps) => {
     },
   });
 
-  const onSubmit = (data: FormValues) => {
-    console.log('Phone:', data.phone);
+  useEffect(() => {
+    register('phone', {
+      required: 'Поле не должно быть пустым',
+      pattern: {
+        value: /^\+380 \(\d{2}\) \d{2}-\d{2}-\d{3}$/,
+        message: 'Введите корректный номер',
+      },
+    });
+  }, [register]);
+
+  const onSubmit = () => {
     setValue('phone', '');
+    if (inputRef.current) inputRef.current.value = '';
   };
 
   return (
-    <div className='px-[330px] pt-[34px] pb-[50px] bg-[#0d4128] text-center'>
-      <h3 className='font-normal text-[30px] leading-[1.2] text-white mb-5'>
-        Нужна помощь в подборе товара? Мы перезваниваем?
-      </h3>
-      <form
-        onSubmit={handleSubmit(onSubmit)}
-        className='relative flex items-center justify-between w-[586px] p-0.5 mx-auto bg-white rounded-[3px]'
-      >
-        <input
-          type='tel'
-          placeholder='+38 (0XX) XX - XX - XXX'
-          {...register('phone', {
-            required: 'Поле не должно быть пустым',
-            pattern: {
-              value: /^[+\d\s()-]+$/,
-              message: 'Допустимы только цифры, пробелы, скобки и "+"',
-            },
-          })}
-          className='flex-grow py-[18px] px-5 font-normal text-[16px] leading-[1.2] text-[#33485d] rounded-[3px] outline-none placeholder:font-normal
-          placeholder:text-[16px] placeholder:leading-[1.2] placeholder:text-[#33485d] placeholder:uppercase placeholder:opacity-70'
-        />
-        <button
-          type='submit'
-          className='w-[213px] py-[14px] px-[48px] font-medium text-[24px] leading-[1.2] text-white bg-[#ffa800] rounded-[3px] cursor-pointer'
+    <div className='px-[20px] lg:px-[330px] pt-[34px] pb-[50px] bg-[#0d4128] text-center text-[0.5rem] lg:text-[0.75rem] xl:text-[1rem] leading-[1.2]'>
+      <h3 className='font-normal text-[1.875em] text-white mb-5'>Нужна помощь в подборе товара? Мы перезваниваем?</h3>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <div
+          className='relative flex flex-col lg:flex-row items-center justify-between min-w-[140px] max-w-[200px]
+        lg:max-w-[586px] p-0.5 mx-auto bg-white rounded-[3px] focus-within:ring-4 focus-within:ring-green-600'
         >
-          Отправить
-        </button>
-        {errors.phone && (
-          <p className='absolute text-red-500 text-sm -bottom-5 left-6'>
-            {errors.phone.message}
-          </p>
-        )}
+          <input
+            ref={inputRef}
+            type='tel'
+            placeholder='+38 (0XX) XXX-XX-XX'
+            onChange={(e) => setValue('phone', e.target.value)}
+            className={
+              'flex-grow py-[1.125em] px-[1.25em] font-normal text-[1em] text-[#33485d] rounded-[3px] outline-none ' +
+              'placeholder:font-normal placeholder:text-[1em] placeholder:text-[#33485d] placeholder:uppercase placeholder:opacity-70'
+            }
+          />
+
+          <button
+            type='submit'
+            className='w-full lg:max-w-[213px] py-[0.875em] px-[1em] font-medium text-[1.5em] text-white bg-[#ffa800]
+          rounded-[3px] cursor-pointer hover:bg-[#e69500] active::bg-[#e69500] transition duration-700 ease-in-out'
+          >
+            Отправить
+          </button>
+          {errors.phone && (
+            <span className='absolute text-red-500 text-sm -bottom-5 lg:left-6 border border-none border-transparent'>
+              {errors.phone.message}
+            </span>
+          )}
+        </div>
       </form>
     </div>
   );

@@ -7,22 +7,10 @@ import { products } from '@/components/api';
 
 export interface ProductDatailsProps {}
 
-const ProductDatails = ({}: ProductDatailsProps) => {
-  const {
-    brand,
-    type,
-    serialNumber,
-    images,
-    article,
-    inStock,
-    rating,
-    reviewsCount,
-    price,
-    oldPrice,
-    reviews,
-  } = products;
+const ProductDetails = ({}: ProductDatailsProps) => {
+  const { article, inStock, rating, reviewsCount, price, oldPrice, images, reviews, productDescription } = products;
   return (
-    <div className='grid grid-cols-2 gap-x-5 gap-y-[60px] mx-auto pb-[15px]'>
+    <div className='md:grid grid-cols-12 md:gap-x-2 xl:gap-x-5 gap-y-[60px] mx-auto lg:pb-[15px]'>
       <ProductImages images={images} />
       <ProductPurchasePanel
         article={article}
@@ -32,14 +20,10 @@ const ProductDatails = ({}: ProductDatailsProps) => {
         price={price}
         oldPrice={oldPrice}
       />
-      <ProductSpecifications
-        type={type}
-        serialNumber={serialNumber}
-        brand={brand}
-      />
+      <ProductSpecifications productDescription={productDescription} />
       <Reviews reviewsCount={reviewsCount} reviews={reviews} />
     </div>
   );
 };
 
-export default ProductDatails;
+export default ProductDetails;

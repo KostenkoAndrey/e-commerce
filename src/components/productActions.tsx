@@ -1,18 +1,20 @@
+'use client';
+
 import React, { useRef, useState } from 'react';
-import Image from 'next/image';
+import SvgIcon from '@/components/svgIcon';
+import BasketModal from '@/components/basketModal';
 
 export interface ProductActionsProps {
   hasBasketCard?: boolean;
-  hasCallCard?: boolean;
+  hasPhoneCard?: boolean;
   productQuantity?: number;
 }
 
-const ProductActions = ({
-  hasBasketCard,
-  productQuantity,
-}: ProductActionsProps) => {
+const ProductActions = ({ hasBasketCard, hasPhoneCard, productQuantity }: ProductActionsProps) => {
   const [isHovered, setIsHovered] = useState(false);
   const hoverTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const [like, setLike] = useState(false);
+  const [balance, setBalance] = useState(false);
 
   const handleMouseEnter = () => {
     if (hoverTimeoutRef.current) clearTimeout(hoverTimeoutRef.current);
@@ -25,83 +27,68 @@ const ProductActions = ({
     }, 100);
   };
   return (
-    <ul
-      className={`flex border-[2px] border-[#ffcb6d] border-solid ${hasBasketCard && 'rounded-tr-lg'}`}
-    >
-      <li className='py-[15px] px-7 flex items-center justify-center'>
-        <svg className='w-[30px] h-[30px] fill-[#33485d]'>
-          <use href='/svg/sprite.svg#Balance' />
-        </svg>
-      </li>
-      <li className='py-[15px] px-7 flex items-center justify-center border-l-[#ffcb6d] border-l-[2px]'>
-        <svg className='w-[30px] h-[30px] fill-[#33485d]'>
-          <use href='/svg/sprite.svg#Like' />
-        </svg>
-      </li>
-      {hasBasketCard && (
-        <li
-          className='group relative py-[13px] px-7 flex items-center justify-center
-          border-l-[#ffcb6d] border-l-[2px] rounded-tr-[6px] hover:bg-[#47b39c] cursor-pointer'
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
+    <div className='flex gap-2 text-[1rem]'>
+      <div className={`hidden lg:flex border-[2px] border-[#ffcb6d] border-solid ${hasBasketCard && 'rounded-tr-lg'}`}>
+        <div
+          onClick={() => setBalance(!balance)}
+          className='py-[13px] px-7 flex items-center justify-center cursor-pointer hover:bg-gray-200 transition duration-700 ease-in-out'
         >
-          <svg className='w-[30px] h-[30px] fill-current text-[#33485d] group-hover:text-[#fff]'>
-            <use href='/svg/sprite.svg#Basket' />
-          </svg>
-          <span
-            className='flex justify-center items-center bg-[#ffbe48] w-[30px] h-5 rounded-[18px]
-                  font-bold text-[#33485d] text-[14px] leading-[1.2] tracking-wider uppercase absolute top-1.5
-                  right-1.5 group-hover:bg-white'
+          <button type='button' className='cursor-pointer'>
+            <SvgIcon
+              name={'Balance'}
+              style={`w-[30px] h-[30px] fill-[#33485d] group-hover:fill-red-500 ${balance && 'fill-red-500'} `}
+            />
+          </button>
+        </div>
+
+        <div
+          onClick={() => setLike(!like)}
+          className='py-[13px] px-7 flex items-center justify-center border-l-[#ffcb6d] border-l-[2px] cursor-pointer
+          hover:bg-gray-200 transition duration-700 ease-in-out'
+        >
+          <button type='button' className='cursor-pointer'>
+            <SvgIcon name={'Like'} style={`w-[30px] h-[30px] fill-current text-[#33485d] ${like && 'text-red-500'} `} />
+          </button>
+        </div>
+
+        {hasBasketCard && (
+          <div
+            className='group relative py-[13px] px-7 flex items-center justify-center
+        border-l-[#ffcb6d] border-l-[2px] rounded-tr-[6px] hover:bg-[#47b39c] cursor-pointer transition duration-700 ease-in-out'
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
           >
-            {productQuantity}
-          </span>
-          {isHovered && (
-            <div
-              className='absolute z-50 w-[338px] h-[280px] pt-[48px] pb-[30px] px-[30px] -right-[7px] top-full
-                    translate-y-[19px] shadow-[0_10px_80px_0_rgba(0,52,41,0.3)] rounded-lg bg-white'
+            <SvgIcon
+              name={'Basket'}
+              style={
+                'w-[30px] h-[30px] fill-current text-[#33485d] group-hover:text-[#fff] transition duration-700 ease-in-out'
+              }
+            />
+
+            <span
+              className='absolute flex justify-center items-center bg-[#ffbe48] w-[30px] h-5 rounded-[18px]
+            font-bold text-[#33485d] text-[14px] leading-[1.2] tracking-wider uppercase  top-1.5
+            right-1.5 group-hover:bg-white duration-700 ease-in-out'
             >
-              <div className='flex flex-col mb-10'>
-                <p className='font-normal text-[18px] text-[#5c6d7d]'>
-                  В корзине
-                  <span className='font-bold text-[18px] text-[#33485d]'>
-                    {` ${productQuantity} товара`}
-                  </span>
-                </p>
-                <p className='font-normal text-[18px] text-[#5c6d7d]'>
-                  На сумму
-                  <span className='font-bold text-[18px] text-[#33485d]'>
-                    {` 30 000 ₴`}
-                  </span>
-                </p>
-                <div className='absolute top-0 left-0'>
-                  <Image
-                    src='/images/Rectangle.png'
-                    alt='Rectangle background'
-                    fill
-                    className='object-cover'
-                  />
-                </div>
-              </div>
-              <button
-                type='button'
-                className='flex items-center gap-4 rounded-tl-lg rounded-br-lg mb-[30px] bg-[#47b39c] py-[15px] px-5 font-medium text-[24px] text-white leading-[1.2] cursor-pointer'
-              >
-                Оформить заказ
-                <svg className='w-[30px] h-[30px] text-white'>
-                  <use href='/svg/sprite.svg#Basket' />
-                </svg>
-              </button>
-              <button
-                type='button'
-                className='inline-block font-medium text-[18px] leading-[1.2] text-[#33485d] border-b-[1px] border-[#5c6d7d] border-opacity-50 cursor-pointer bg-transparent'
-              >
-                Редактировать заказ
-              </button>
-            </div>
-          )}
-        </li>
+              {productQuantity}
+            </span>
+
+            {isHovered && <BasketModal productQuantity={productQuantity} />}
+          </div>
+        )}
+      </div>
+      {hasPhoneCard && (
+        <div
+          className='hidden h-[60px] lg:flex items-center gap-3 lg:py-[13px] lg:px-7 xl:px-5 xl:py-3 border-2
+        border-[#ffcb6d] rounded-br-lg max-w-[167px] cursor-pointer hover:bg-gray-200 transition duration-500 ease-in-out'
+        >
+          <SvgIcon name={'Call'} style={'w-[30px] h-[30px] fill-[#33485d]'} />
+          <span className='hidden xl:inline font-medium lg:text-[0.875em] xl:text-[0.875em] leading-[1.2] text-[#5c6d7d]'>
+            Купить в один клик
+          </span>
+        </div>
       )}
-    </ul>
+    </div>
   );
 };
 

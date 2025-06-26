@@ -1,10 +1,33 @@
+export interface Promo {
+  id: number;
+  title: string;
+  group: string;
+  price: number;
+  rating: number;
+  reviewsCount: number;
+  badge: string | null;
+  inStock: boolean;
+  image: {
+    small: string;
+    large: string;
+  };
+}
+
 export const products = {
   id: 1,
   article: '100500',
   name: 'Тестовый товар для верстки',
-  brand: 'Wezom',
-  type: 'Группа 1',
-  serialNumber: 'B410-210',
+  productDescription: {
+    Brand: 'Wezom',
+    Type: 'Group 1',
+    Serial_Number: 'B410-210',
+    Country_Of_Origin: 'Germany',
+    Material: 'Aluminum',
+    Weight: '1.2 kg',
+    Dimensions: '210×140×50 mm',
+    Compatibility: 'Universal',
+    Warranty: '24 months',
+  },
   inStock: true,
   rating: 5,
   reviewsCount: 15,
@@ -38,8 +61,7 @@ export const products = {
       author: 'Мельник Алексей',
       date: '2021-06-10',
       rating: 3,
-      content:
-        'Ожидал немного большего за эти деньги. Работает стабильно, но качество пластика могло быть и получше.',
+      content: 'Ожидал немного большего за эти деньги. Работает стабильно, но качество пластика могло быть и получше.',
     },
     {
       author: 'Гордиенко Наталья',
@@ -57,68 +79,103 @@ export const products = {
     description: 'До 30 июля скидка — 20% на все тестовые товары',
   },
   images: [
-    '/images/big-photo.png',
-    '/images/product-2.png',
-    '/images/product-3.png',
-    '/images/product-4.png',
-    '/images/product-5.png',
+    {
+      small: '/images/product-1-@1x.jpg',
+      large: '/images/product-1-@2x.jpg',
+    },
+    {
+      small: '/images/product-2-@1x.jpg',
+      large: '/images/product-2-@2x.jpg',
+    },
+    {
+      small: '/images/product-3-@1x.jpg',
+      large: '/images/product-3-@2x.jpg',
+    },
+    {
+      small: '/images/product-4-@1x.jpg',
+      large: '/images/product-4-@2x.jpg',
+    },
+    {
+      small: '/images/product-5-@1x.jpg',
+      large: '/images/product-5-@2x.jpg',
+    },
   ],
 };
 
 export const promo = [
   {
     id: 1,
-    title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+    title:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
     group: 'Group',
     price: 3799,
     rating: 5,
     reviewsCount: 3,
     badge: 'top',
     inStock: true,
-    image: '/images/spareParts-1.png',
+    image: {
+      small: '/images/spareParts-1-@1x.jpg',
+      large: '/images/spareParts-1-@2x.jpg',
+    },
   },
   {
     id: 2,
-    title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+    title:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
     group: 'Group',
     price: 711,
     rating: 5,
     reviewsCount: 44,
     badge: 'new',
     inStock: true,
-    image: '/images/spareParts-1.png',
+    image: {
+      small: '/images/spareParts-1-@1x.jpg',
+      large: '/images/spareParts-1-@2x.jpg',
+    },
   },
   {
     id: 3,
-    title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+    title:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
     group: 'Group',
     price: 22105,
     rating: 4,
     reviewsCount: 11,
     badge: 'top',
     inStock: true,
-    image: '/images/spareParts-2.png',
+    image: {
+      small: '/images/product-5-@1x.jpg',
+      large: '/images/product-5-@2x.jpg',
+    },
   },
   {
     id: 4,
-    title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+    title:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
     group: 'Group',
     price: 158,
     rating: 5,
     reviewsCount: 76,
     badge: null,
     inStock: false,
-    image: '/images/spareParts-1.png',
+    image: {
+      small: '/images/spareParts-1-@1x.jpg',
+      large: '/images/spareParts-1-@2x.jpg',
+    },
   },
   {
     id: 5,
-    title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+    title:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
     group: 'Group',
     price: 1000,
     rating: 4,
     reviewsCount: 2,
     badge: 'new',
     inStock: true,
-    image: '/images/spareParts-1.png',
+    image: {
+      small: '/images/spareParts-1-@1x.jpg',
+      large: '/images/spareParts-1-@2x.jpg',
+    },
   },
 ];
