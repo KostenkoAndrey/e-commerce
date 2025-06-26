@@ -17,25 +17,25 @@ export interface ProductImagesProps {
 }
 
 const ProductImages = ({ images }: ProductImagesProps) => {
-  const [mainImage, setMainImage] = useState(images[0]);
   const [startIndex, setStartIndex] = useState(0);
+  const [mainImage, setMainImage] = useState(images[0]);
   const visibleCount = 4;
+
+  const maxStartIndex = Math.max(0, images.length - visibleCount);
   const canScrollUp = startIndex > 0;
-  const canScrollDown = startIndex + visibleCount < images.length;
+  const canScrollDown = startIndex < maxStartIndex;
 
   const handleScrollUp = () => {
-    if (canScrollUp) {
+    if (startIndex > 0) {
       const newStart = startIndex - 1;
       setStartIndex(newStart);
-      setMainImage(images[newStart]);
     }
   };
 
   const handleScrollDown = () => {
-    if (canScrollDown) {
+    if (startIndex < maxStartIndex) {
       const newStart = startIndex + 1;
       setStartIndex(newStart);
-      setMainImage(images[newStart]);
     }
   };
 
@@ -48,7 +48,7 @@ const ProductImages = ({ images }: ProductImagesProps) => {
           <button
             onClick={handleScrollUp}
             disabled={!canScrollUp}
-            className={`${canScrollUp ? 'opacity-100' : 'opacity-30 cursor-not-allowed'}`}
+            className={`${startIndex > 0 ? 'opacity-100' : 'opacity-30 cursor-not-allowed'}`}
           >
             <SvgIcon name={'Pict-path-up'} style={'w-7 h-3 fill-[#33485d]'} />
           </button>
@@ -79,7 +79,7 @@ const ProductImages = ({ images }: ProductImagesProps) => {
           <button
             onClick={handleScrollDown}
             disabled={!canScrollDown}
-            className={`${canScrollDown ? 'opacity-100' : 'opacity-30 cursor-not-allowed'}`}
+            className={`${startIndex < maxStartIndex ? 'opacity-100' : 'opacity-30 cursor-not-allowed'}`}
           >
             <SvgIcon name={'Pict-path-down'} style={'w-7 h-3 fill-[#33485d]'} />
           </button>
