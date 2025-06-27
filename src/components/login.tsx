@@ -1,18 +1,19 @@
 import React from 'react';
 import Link from 'next/link';
+import SvgIcon from '@/components/svgIcon';
 
-export interface LoginProps {}
+export interface LoginProps {
+  children?: React.ReactNode;
+  style: string;
+}
 
-const Login = ({}: LoginProps) => {
+const Login = ({ children, style }: LoginProps) => {
   return (
     <Link
-      className='flex gap-3 items-center font-bold text-[0.75rem] xl:text-[0.875rem] leading-[1.2] text-[#5c6d7d] hover:text-[#33485d] lg:mr-4'
+      className={`${style} flex gap-3 items-center font-bold text-[0.75rem] xl:text-[0.875rem] leading-[1.2] text-[#5c6d7d] hover:text-[#33485d] lg:mr-4`}
       href='/login'
     >
-      Войти
-      <svg className='w-10 h-10 lg:w-5 lg:h-5 fill-[#ffbe48]'>
-        <use href='/svg/sprite.svg#User' />
-      </svg>
+      {children}
     </Link>
   );
 };

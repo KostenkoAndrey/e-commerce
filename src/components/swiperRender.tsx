@@ -54,14 +54,9 @@ const SwiperRender = ({ item }: SwiperProps) => {
           </div>
         ))}
       </div>
-      {/*// <!-- If we need pagination -->*/}
       <div className='swiper-pagination'></div>
-
-      {/*// <!-- If we need navigation buttons -->*/}
       <div className='swiper-button-prev'></div>
       <div className='swiper-button-next'></div>
-
-      {/*// <!-- If we need scrollbar -->*/}
     </div>
   );
 };

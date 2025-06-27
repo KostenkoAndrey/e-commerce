@@ -36,14 +36,19 @@ const PromoItem = ({ item }: PromoItemProps) => {
           {item.badge}
         </span>
       )}
-      <button type='button' onClick={() => setLike(!like)} className='absolute top-3 right-3 cursor-pointer z-10'>
+      <button
+        type='button'
+        aria-label='Set Like'
+        onClick={() => setLike(!like)}
+        className='absolute top-3 right-3 cursor-pointer z-10'
+      >
         <SvgIcon name={'Like'} style={`w-[30px] h-[30px] fill-[#33485d] ${like && 'text-red-500'}`} />
       </button>
 
       <div className='mb-2 max-w-[255px]'>
         <picture>
           <source srcSet={`${item.image.small} 1x, ${item.image.large} 2x`} type='image/jpeg' />
-          <img className='object-contain w-full h-auto' src={item.image.small} alt='Фото' />
+          <img className='object-contain w-[255px] h-[255px]' src={item.image.small} alt='Фото' loading='lazy' />
         </picture>
       </div>
 
@@ -52,7 +57,7 @@ const PromoItem = ({ item }: PromoItemProps) => {
         <span className=' text-[0.875em]'>{item.reviewsCount}</span>
       </div>
 
-      <div className='flex flex-col gap-2 h-[87px] px-2.5 mb-1 relative overflow-hidden z-10 mb-4'>
+      <div className='flex flex-col gap-2 h-[87px] px-2.5 relative overflow-hidden z-10 mb-4'>
         <span className=' text-[0.875em] leading-[1.7] text-[#219653]'>{item.group}</span>
         <span className='font-normal text-[1.125em]'>{item.title}</span>
         <div

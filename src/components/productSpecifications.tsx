@@ -50,6 +50,7 @@ const ProductSpecifications = ({ productDescription }: productSpecificationsStat
         {visible < Object.keys(productDescription).length ? (
           <button
             type='button'
+            aria-label='Open More Characteristics'
             onClick={handleOnClick}
             className='flex items-baseline gap-3 mx-auto sm:mx-0 hover:opacity-50 transition duration-700 ease-in-out'
           >

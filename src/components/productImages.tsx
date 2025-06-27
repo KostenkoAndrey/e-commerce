@@ -48,6 +48,7 @@ const ProductImages = ({ images }: ProductImagesProps) => {
           <button
             onClick={handleScrollUp}
             disabled={!canScrollUp}
+            aria-label='Scroll-Up'
             className={`${startIndex > 0 ? 'opacity-100' : 'opacity-30 cursor-not-allowed'}`}
           >
             <SvgIcon name={'Pict-path-up'} style={'w-7 h-3 fill-[#33485d]'} />
@@ -70,7 +71,7 @@ const ProductImages = ({ images }: ProductImagesProps) => {
                 >
                   <picture>
                     <source srcSet={`${img.small} 1x, ${img.large} 2x`} type='image/jpeg' />
-                    <img src={img.small} alt='Фото' />
+                    <img src={img.small} alt='Фото' loading='lazy' />
                   </picture>
                 </motion.div>
               ))}
@@ -79,12 +80,13 @@ const ProductImages = ({ images }: ProductImagesProps) => {
           <button
             onClick={handleScrollDown}
             disabled={!canScrollDown}
+            aria-label='Scroll-Down'
             className={`${startIndex < maxStartIndex ? 'opacity-100' : 'opacity-30 cursor-not-allowed'}`}
           >
             <SvgIcon name={'Pict-path-down'} style={'w-7 h-3 fill-[#33485d]'} />
           </button>
         </div>
-        <div className='overflow-hidden lg:max-h-[450px] xl:max-h-[580px]'>
+        <div className='overflow-hidden max-w-[580px] max-h-[580px]'>
           <picture className='block w-full h-full'>
             <source srcSet={`${mainImage.small} 1x, ${mainImage.large} 2x`} type='image/jpeg' />
             <motion.img

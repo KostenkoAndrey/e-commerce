@@ -1,13 +1,16 @@
 import React from 'react';
-import Path from '@/components/path';
-import ProductDetails from '@/components/productDetails';
-import PromoProducts from '@/components/promoProducts';
-import CallbackForm from '@/components/callbackForm';
+import dynamic from 'next/dynamic';
 
 export const metadata = {
   title: 'Product',
   description: 'Product description',
 };
+
+import Path from '@/components/path';
+
+const ProductDetails = dynamic(() => import('@/components/productDetails'));
+const PromoProducts = dynamic(() => import('@/components/promoProducts'));
+const CallbackForm = dynamic(() => import('@/components/callbackForm'));
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (

@@ -41,7 +41,7 @@ const SearchBox = ({}: SearchBoxProps) => {
           className='w-full px-4 py-3.5 rounded-[10px] bg-[#dde8f0] placeholder-[#33485d] placeholder:text-[1em] placeholder:leading-[1.2px]
         placeholder:font-normal placeholder:opacity-70 outline-none focus:outline-blue-400 focus:ring-4'
         />
-        <button type='submit'>
+        <button type='submit' aria-label='Submit'>
           <SvgIcon
             name={'Magnifier'}
             style={'w-[18px] h-[18px] stroke-[#33485d] absolute top-1/2 -translate-y-1/2 right-4'}

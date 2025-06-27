@@ -30,7 +30,10 @@ const Header = () => {
       <div className='hidden md:flex lg:flex-col justify-center items-end lg:gap-8'>
         <div className='flex gap-2 lg:gap-[62px]'>
           <LanguageSwitcher />
-          <Login />
+          <Login style='hidden md:flex'>
+            Войти
+            <SvgIcon name={'User'} style={'w-10 h-10 lg:w-5 lg:h-5 fill-[#ffbe48]'} />
+          </Login>
         </div>
         <ProductActions hasBasketCard={true} productQuantity={productQuantity} />
       </div>

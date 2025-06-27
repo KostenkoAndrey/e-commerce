@@ -36,6 +36,7 @@ const ProductActions = ({ hasBasketCard, hasPhoneCard, productQuantity }: Produc
           <button type='button' className='cursor-pointer'>
             <SvgIcon
               name={'Balance'}
+              aria-label='Balance'
               style={`w-[30px] h-[30px] fill-[#33485d] group-hover:fill-red-500 ${balance && 'fill-red-500'} `}
             />
           </button>
@@ -46,7 +47,7 @@ const ProductActions = ({ hasBasketCard, hasPhoneCard, productQuantity }: Produc
           className='py-[13px] px-7 flex items-center justify-center border-l-[#ffcb6d] border-l-[2px] cursor-pointer
           hover:bg-gray-200 transition duration-700 ease-in-out'
         >
-          <button type='button' className='cursor-pointer'>
+          <button type='button' aria-label='Like' className='cursor-pointer'>
             <SvgIcon name={'Like'} style={`w-[30px] h-[30px] fill-current text-[#33485d] ${like && 'text-red-500'} `} />
           </button>
         </div>

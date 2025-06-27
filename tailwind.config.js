@@ -5,6 +5,9 @@ module.exports = {
   safelist: ['bg-gradient-to-b', 'from-green-600', 'to-white', 'pt-[30px]', 'shadow', 'shadow-md', 'shadow-lg'],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['var(--font-roboto)', 'system-ui', 'sans-serif'],
+      },
       borderRadius: {
         lg: 'var(--radius)',
         md: 'calc(var(--radius) - 2px)',

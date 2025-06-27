@@ -46,6 +46,7 @@ const Reviews = ({ reviewsCount, reviews }: ReviewsProps) => {
           <button
             type='button'
             onClick={() => loadAllList()}
+            aria-label='Open more Reviews'
             className='relative flex items-baseline gap-1.5 font-medium text-[1em] text-[#33485d] cursor-pointer hover:opacity-50 transition duration-700 ease-in-out
           after:absolute after:content-[""] after:left-1 after:-bottom-[4px] after:w-[5.125em] after:opacity-50  after:border after:border-[#5c6d7d]  '
           >

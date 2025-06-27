@@ -55,7 +55,9 @@ const ProductPurchasePanel = ({
 
       <div className='pb-4'>
         <div className='flex h-[60px]'>
-          <h3 className='flex items-center px-4 font-bold text-[1.5em] text-white bg-[#eb5757] rounded-tl-lg'>Акция</h3>
+          <h3 className='flex items-center px-4 font-bold text-[1.25em] md:text-[1.5em] text-white bg-[#eb5757] rounded-tl-lg'>
+            Акция
+          </h3>
           <span className='flex items-center px-4 font-normal text-[1em] text-[#eb5757] bg-[#fdeeee] rounded-tr-lg w-full h-full'>
             До 30 июля скидка — 20% на все тестовые товары
           </span>

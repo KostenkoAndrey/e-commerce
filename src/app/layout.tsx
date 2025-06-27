@@ -9,6 +9,7 @@ import Footer from '@/components/footer';
 const roboto = Roboto({
   subsets: ['latin'],
   weight: ['400', '500', '700'],
+  display: 'swap',
 });
 
 export const metadata = {

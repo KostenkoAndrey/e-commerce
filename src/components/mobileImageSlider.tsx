@@ -43,15 +43,17 @@ const MobileImageSlider = ({ images }: ProductImagesProps) => {
           <div key={i} className='swiper-slide overflow-hidden'>
             <picture className='block w-full h-full'>
               <source srcSet={`${img.small} 1x, ${img.large} 2x`} type='image/jpeg' />
-              <img className='object-contain w-full h-auto max-h-[400px] xl:max-h-[580px]' src={img.small} alt='Фото' />
+              <img
+                className='object-contain w-full h-auto max-h-[400px] xl:max-h-[580px]'
+                src={img.small}
+                alt='Фото'
+                loading='lazy'
+              />
             </picture>
           </div>
         ))}
       </div>
-      {/*// <!-- If we need pagination -->*/}
       <div className='swiper-pagination'></div>
-
-      {/*// <!-- If we need navigation buttons -->*/}
       <div className='swiper-button-prev'></div>
       <div className='swiper-button-next'></div>
     </div>
