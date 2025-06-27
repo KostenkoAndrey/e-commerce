@@ -1,7 +1,16 @@
+'use client';
+
 import React, { useEffect } from 'react';
 
-import Swiper from 'swiper/bundle';
-import 'swiper/css/bundle';
+import Swiper from 'swiper';
+import { Navigation, Pagination, Scrollbar } from 'swiper/modules';
+
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/scrollbar';
+
+Swiper.use([Navigation, Pagination, Scrollbar]);
 
 export interface MobileImageSlider {
   small: string;
@@ -43,7 +52,13 @@ const MobileImageSlider = ({ images }: ProductImagesProps) => {
           <div key={i} className='swiper-slide overflow-hidden'>
             <picture className='block w-full h-full'>
               <source srcSet={`${img.small} 1x, ${img.large} 2x`} type='image/jpeg' />
-              <img className='object-contain w-full h-auto max-h-[400px] xl:max-h-[580px]' src={img.small} alt='Фото' />
+              <img
+                className='object-contain w-full h-auto max-h-[400px] xl:max-h-[580px]'
+                width='580'
+                height='580'
+                src={img.small}
+                alt='Фото'
+              />
             </picture>
           </div>
         ))}
