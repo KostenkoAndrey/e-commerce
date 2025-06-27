@@ -48,7 +48,7 @@ const PromoItem = ({ item }: PromoItemProps) => {
       <div className='mb-2 max-w-[255px]'>
         <picture>
           <source srcSet={`${item.image.small} 1x, ${item.image.large} 2x`} type='image/jpeg' />
-          <img className='object-contain w-[255px] h-[255px]' src={item.image.small} alt='Фото' loading='lazy' />
+          <img className='object-contain' src={item.image.small} alt='Фото' loading='lazy' width='255' height='255' />
         </picture>
       </div>
 

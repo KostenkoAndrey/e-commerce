@@ -71,7 +71,7 @@ const ProductImages = ({ images }: ProductImagesProps) => {
                 >
                   <picture>
                     <source srcSet={`${img.small} 1x, ${img.large} 2x`} type='image/jpeg' />
-                    <img src={img.small} alt='Фото' loading='lazy' />
+                    <img src={img.small} alt='Фото' width='120' height='120' />
                   </picture>
                 </motion.div>
               ))}
@@ -90,13 +90,15 @@ const ProductImages = ({ images }: ProductImagesProps) => {
           <picture className='block w-full h-full'>
             <source srcSet={`${mainImage.small} 1x, ${mainImage.large} 2x`} type='image/jpeg' />
             <motion.img
-              key={mainImage.small} // заставит React анимировать переход
+              key={mainImage.small}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 1 }}
               className='object-contain w-full h-auto max-h-[400px] xl:max-h-[580px]'
               src={mainImage.small}
               alt='Фото'
+              width='580'
+              height='580'
             />
           </picture>
         </div>

@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 
 import Swiper from 'swiper/bundle';
 import 'swiper/css/bundle';
+import useIsMobile from '@/customHooks/useIsMobile';
 
 export interface MobileImageSlider {
   small: string;
@@ -13,7 +14,11 @@ export interface ProductImagesProps {
 }
 
 const MobileImageSlider = ({ images }: ProductImagesProps) => {
+  const isMobile = useIsMobile();
+
   useEffect(() => {
+    if (!isMobile) return;
+    
     const swiper = new Swiper('.gallery-swiper', {
       direction: 'horizontal',
       loop: false,
