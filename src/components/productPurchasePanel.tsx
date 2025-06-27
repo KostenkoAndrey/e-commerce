@@ -25,18 +25,18 @@ const ProductPurchasePanel = ({
   return (
     <div
       className='grid col-span-1 col-start-7 md:col-end-13 xl:col-end-12 pt-[20px] pb-[10px] md:py-0 text-[0.75rem] xl:text-[1rem]
-        font-medium leading-[1.2]'
+        font-medium leading-[1.2] min-h-[200px] min-w-[355px]'
     >
       <div className='flex items-center gap-5 py-2 xl:p-0'>
         <div className={`flex items-center gap-3  text-[1em] ${inStock ? 'text-[#249755]' : 'text-[#eb5757]'} `}>
           <SvgIcon
             name={`${inStock ? 'Check' : 'Cross'}`}
-            style={`w-5 h-5 ${inStock ? 'fill-[#219653]' : 'fill-[#eb5757]'}`}
+            style={`w-5 h-5 min-w-[20px] min-h-[20px] ${inStock ? 'fill-[#219653]' : 'fill-[#eb5757]'}`}
           />
           <span>{inStock ? 'В наличии' : 'Нет в наличии'}</span>
         </div>
 
-        <div className='flex flex-grow gap-1 items-center '>
+        <div className='flex flex-grow gap-1 items-center min-h-[14px]'>
           <StarRatingRender rating={rating} />
           <span
             className='relative text-[0.875em] text-[#33485d] ml-1

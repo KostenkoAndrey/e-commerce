@@ -40,8 +40,13 @@ const CallbackForm = () => {
   };
 
   return (
-    <div className='px-[20px] lg:px-[330px] pt-[34px] pb-[50px] bg-[#0d4128] text-center text-[0.5rem] lg:text-[0.75rem] xl:text-[1rem] leading-[1.2]'>
-      <h3 className='font-normal text-[1.875em] text-white mb-5'>Нужна помощь в подборе товара? Мы перезваниваем?</h3>
+    <div
+      className='flex flex-col  justify-center items-center gap-5 pt-[34px] pb-[50px] bg-[#0d4128] text-center
+      text-[0.5rem] lg:text-[0.75rem] xl:text-[1rem] leading-[1.2]'
+    >
+      <h3 className='font-normal text-[1.875em] text-white max-w-[780px] min-h-9'>
+        Нужна помощь в подборе товара? Мы перезваниваем?
+      </h3>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div
           className='relative flex flex-col lg:flex-row items-center justify-between min-w-[140px] max-w-[200px]
@@ -61,7 +66,7 @@ const CallbackForm = () => {
           <button
             type='submit'
             className='w-full lg:max-w-[213px] py-[0.875em] px-[1em] font-medium text-[1.5em] text-white bg-[#ffa800]
-          rounded-[3px] cursor-pointer hover:bg-[#e69500] active::bg-[#e69500] transition duration-700 ease-in-out'
+          rounded-[3px] cursor-pointer hover:bg-[#e69500] active::bg-[#e69500] transition-colors duration-300 ease-in-out'
           >
             Отправить
           </button>

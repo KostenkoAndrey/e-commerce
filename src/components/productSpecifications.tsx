@@ -30,7 +30,7 @@ const ProductSpecifications = ({ productDescription }: productSpecificationsStat
          font-normal leading-[1.2] py-[10px] md:py-0'
     >
       <div>
-        <h3 className='text-[1.875em] text-[#33485d] text-center sm:text-left mb-8'>
+        <h3 className='text-[1.875em] text-[#33485d] text-center sm:text-left mb-8 min-h-[48px]'>
           Характеристики
           <span className='text-[#219653]'> Тестового товара для верстки</span>
         </h3>

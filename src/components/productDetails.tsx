@@ -1,8 +1,7 @@
 'use client';
 import React from 'react';
-import dynamic from 'next/dynamic';
 
-const ProductImages = dynamic(() => import('@/components/productImages'), { ssr: false });
+import ProductImages from '@/components/productImages';
 import ProductPurchasePanel from '@/components/productPurchasePanel';
 import ProductSpecifications from '@/components/productSpecifications';
 import Reviews from '@/components/reviews';

@@ -35,7 +35,7 @@ const Reviews = ({ reviewsCount, reviews }: ReviewsProps) => {
   return (
     <div
       className='grid col-start-7 md:col-end-13 xl:col-end-12 font-normal text-[0.625rem] lg:text-[0.875rem] xl:text-[1rem]
-        leading-[1.2] pt-[10px] md:pt-0'
+        leading-[1.2] pt-[10px] md:pt-0 min-w-[355px]'
     >
       <div className='flex justify-between items-center'>
         <h3 className='text-[1.875em] text-[#33485d]'>
@@ -47,8 +47,8 @@ const Reviews = ({ reviewsCount, reviews }: ReviewsProps) => {
             type='button'
             onClick={() => loadAllList()}
             aria-label='Open more Reviews'
-            className='relative flex items-baseline gap-1.5 font-medium text-[1em] text-[#33485d] cursor-pointer hover:opacity-50 transition duration-700 ease-in-out
-          after:absolute after:content-[""] after:left-1 after:-bottom-[4px] after:w-[5.125em] after:opacity-50  after:border after:border-[#5c6d7d]  '
+            className='relative flex items-baseline gap-1.5 font-medium text-[1em] text-[#33485d] cursor-pointer hover:opacity-50 transition-opacity duration-300 ease-in-out
+          after:absolute after:content-[""] after:left-1 after:-bottom-[4px] after:w-[5.125em] after:opacity-50 after:border after:border-[#5c6d7d]'
           >
             Все отзывы
             <SvgIcon name={`Path-right`} style={`w-1.5 h-[9px] fill-[#33485d]`} />

@@ -53,12 +53,12 @@ const MobileImageSlider = ({ images }: ProductImagesProps) => {
             <picture className='block w-full h-full'>
               <source srcSet={`${img.small} 1x, ${img.large} 2x`} type='image/jpeg' />
               <img
-                className='object-contain w-full h-auto max-h-[400px] xl:max-h-[580px]'
+                className='object-contain w-full h-auto max-h-[400px] xl:max-h-[580px] aspect-square'
                 width='580'
                 height='580'
                 src={img.small}
                 alt='Фото'
-                loading={i === 0 ? 'eager' : 'lazy'}
+                loading='eager'
               />
             </picture>
           </div>
