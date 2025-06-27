@@ -3,10 +3,10 @@
 import { useState } from 'react';
 import React from 'react';
 import SvgIcon from '@/components/svgIcon';
-import MobileImageSlider from '@/components/mobileImageSlider';
 
 import { motion, AnimatePresence } from 'framer-motion';
 import useIsMobile from '@/customHooks/useIsMobile';
+import MobileImageSlider from '@/components/mobileImageSlider';
 
 interface ProductImageProps {
   small: string;
@@ -44,6 +44,7 @@ const ProductImages = ({ images }: ProductImagesProps) => {
   if (isMobile) {
     return <MobileImageSlider images={images} />;
   }
+
   const visibleImages = images.slice(startIndex, startIndex + visibleCount);
   return (
     <>

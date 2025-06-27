@@ -58,6 +58,7 @@ const MobileImageSlider = ({ images }: ProductImagesProps) => {
                 height='580'
                 src={img.small}
                 alt='Фото'
+                loading={i === 0 ? 'eager' : 'lazy'}
               />
             </picture>
           </div>
