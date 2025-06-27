@@ -1,11 +1,19 @@
+'use client';
+
 import React from 'react';
 import PromoItem from '@/components/promoItem';
 import { promo } from '@/components/api';
 import SwiperRender from '@/components/swiperRender';
+import useIsMobile from '@/customHooks/useIsMobile';
 
 export interface PromoProductsProps {}
 
 const PromoProducts = ({}: PromoProductsProps) => {
+  const isMobile = useIsMobile(1280);
+
+  if (isMobile) {
+    return <SwiperRender item={promo} />;
+  }
   return (
     <>
       <div className='hidden mx-auto xl:block'>
@@ -20,7 +28,6 @@ const PromoProducts = ({}: PromoProductsProps) => {
           </ul>
         </div>
       </div>
-      <SwiperRender item={promo} />
     </>
   );
 };

@@ -6,18 +6,13 @@ import { Promo } from '@/components/api';
 
 import Swiper from 'swiper/bundle';
 import 'swiper/css/bundle';
-import useIsMobile from '@/customHooks/useIsMobile';
 
 export interface SwiperProps {
   item: Promo[];
 }
 
 const SwiperRender = ({ item }: SwiperProps) => {
-  const isMobile = useIsMobile();
-
   useEffect(() => {
-    if (!isMobile) return;
-    
     const swiper = new Swiper('.product-swiper', {
       direction: 'horizontal',
       loop: false,

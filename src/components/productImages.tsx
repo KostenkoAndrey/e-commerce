@@ -6,6 +6,7 @@ import SvgIcon from '@/components/svgIcon';
 import MobileImageSlider from '@/components/mobileImageSlider';
 
 import { motion, AnimatePresence } from 'framer-motion';
+import useIsMobile from '@/customHooks/useIsMobile';
 
 interface ProductImageProps {
   small: string;
@@ -17,6 +18,7 @@ export interface ProductImagesProps {
 }
 
 const ProductImages = ({ images }: ProductImagesProps) => {
+  const isMobile = useIsMobile(1024);
   const [startIndex, setStartIndex] = useState(0);
   const [mainImage, setMainImage] = useState(images[0]);
   const visibleCount = 4;
@@ -39,8 +41,10 @@ const ProductImages = ({ images }: ProductImagesProps) => {
     }
   };
 
+  if (isMobile) {
+    return <MobileImageSlider images={images} />;
+  }
   const visibleImages = images.slice(startIndex, startIndex + visibleCount);
-
   return (
     <>
       <div className='hidden lg:grid lg:grid-cols-[70px_1fr] xl:grid-cols-[120px_1fr] col-start-1 col-end-7 gap-4 overflow-hidden'>
@@ -103,7 +107,6 @@ const ProductImages = ({ images }: ProductImagesProps) => {
           </picture>
         </div>
       </div>
-      <MobileImageSlider images={images} />
     </>
   );
 };
