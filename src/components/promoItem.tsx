@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState } from 'react';
 import StarRatingRender from '@/components/starRatingRender';
 import SvgIcon from '@/components/svgIcon';

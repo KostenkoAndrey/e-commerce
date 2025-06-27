@@ -71,8 +71,8 @@ const ProductPurchasePanel = ({
 
         <div className='flex justify-between lg:gap-2'>
           <ButtonForOrder
-            style='flex-grow flex items-center justify-center lg:justify-between bg-[#219653] text-white font-medium rounded-b-lg lg:rounded-br-none
-            py-2 px-7 xl:px-3 text-[20px] w-full xl:max-w-[223px] gap-2'
+            style='flex-grow flex items-center justify-center lg:justify-between bg-[#219653] text-white rounded-b-lg
+            lg:rounded-br-none py-2 px-7 xl:px-3 text-[1.75em] xl:text-[1.25em] w-full xl:max-w-[223px] gap-1'
           >
             В корзину
             <SvgIcon name={'Basket'} style={'w-[30px] h-[30px] fill-white'} />

@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useEffect } from 'react';
 import PromoItem from '@/components/promoItem';
 import { Promo } from '@/components/api';
